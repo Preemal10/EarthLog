@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: earthlog-db
+    environment:
+      POSTGRES_DB: earthlog
+      POSTGRES_USER: earthlog
+      POSTGRES_PASSWORD: earthlog123
+    ports:
+      - "5432:5432"
+    volumes:
+      - earthlog_data:/var/lib/postgresql/data
+      - ./src/main/resources/data/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U earthlog -d earthlog"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  rabbitmq:
+    image: rabbitmq:3.12-management-alpine
+    container_name: earthlog-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: earthlog
+      RABBITMQ_DEFAULT_PASS: earthlog123
+      RABBITMQ_DEFAULT_VHOST: earthlog
+    ports:
+      - "5672:5672"    # AMQP protocol
+      - "15672:15672"  # Management UI
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  earthlog_data:
+    driver: local
+  rabbitmq_data:
+    driver: local
