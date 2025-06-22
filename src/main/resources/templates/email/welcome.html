@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to EarthLog</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #2e7d32, #4caf50); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+        .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 10px 10px; }
+        .button { display: inline-block; background: #4caf50; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; margin: 20px 0; }
+        .footer { text-align: center; margin-top: 30px; color: #666; font-size: 12px; }
+        .feature { background: white; padding: 15px; margin: 10px 0; border-radius: 5px; border-left: 4px solid #4caf50; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to EarthLog!</h1>
+        <p>Your journey to a smaller carbon footprint starts here</p>
+    </div>
+    
+    <div class="content">
+        <p>Hello <strong th:text="${name}">User</strong>,</p>
+        
+        <p>Thank you for joining EarthLog! We're excited to help you track and reduce your carbon footprint.</p>
+        
+        <h3>What you can do with EarthLog:</h3>
+        
+        <div class="feature">
+            <strong>Track Activities</strong>
+            <p>Log your daily transport, food, energy usage, and shopping to see your carbon impact.</p>
+        </div>
+        
+        <div class="feature">
+            <strong>Set Goals</strong>
+            <p>Set weekly, monthly, or yearly emission targets and track your progress.</p>
+        </div>
+        
+        <div class="feature">
+            <strong>Earn Badges</strong>
+            <p>Get rewarded for making eco-friendly choices and maintaining logging streaks.</p>
+        </div>
+        
+        <div class="feature">
+            <strong>Get Insights</strong>
+            <p>View analytics and trends to understand your environmental impact.</p>
+        </div>
+        
+        <p style="text-align: center;">
+            <a href="http://localhost:3000" class="button">Start Tracking Now</a>
+        </p>
+        
+        <p>Every action counts. Together, we can make a difference!</p>
+        
+        <p>Best regards,<br>The EarthLog Team</p>
+    </div>
+    
+    <div class="footer">
+        <p>&copy; 2026 EarthLog. All rights reserved.</p>
+        <p>This email was sent because you signed up for EarthLog.</p>
+    </div>
+</body>
+</html>
