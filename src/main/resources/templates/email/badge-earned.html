@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badge Earned - EarthLog</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #7b1fa2, #9c27b0); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+        .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 10px 10px; }
+        .badge-container { text-align: center; margin: 30px 0; }
+        .badge { display: inline-block; width: 120px; height: 120px; background: linear-gradient(135deg, #ffd700, #ffeb3b); border-radius: 50%; line-height: 120px; font-size: 50px; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5); }
+        .badge-name { font-size: 24px; font-weight: bold; color: #7b1fa2; margin: 15px 0 5px 0; }
+        .badge-description { color: #666; font-style: italic; }
+        .celebration { background: #f3e5f5; padding: 20px; border-radius: 10px; text-align: center; margin: 20px 0; }
+        .button { display: inline-block; background: #9c27b0; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; margin: 20px 0; }
+        .footer { text-align: center; margin-top: 30px; color: #666; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Congratulations!</h1>
+        <p>You've earned a new badge</p>
+    </div>
+    
+    <div class="content">
+        <p>Hello <strong th:text="${name}">User</strong>,</p>
+        
+        <div class="celebration">
+            <p>Your dedication to tracking your carbon footprint has paid off!</p>
+        </div>
+        
+        <div class="badge-container">
+            <div class="badge">🏆</div>
+            <div class="badge-name" th:text="${badgeName}">Badge Name</div>
+            <div class="badge-description" th:text="${badgeDescription}">Badge description goes here</div>
+        </div>
+        
+        <p>This achievement recognizes your commitment to understanding and reducing your environmental impact.</p>
+        
+        <p style="text-align: center;">
+            <a href="http://localhost:3000/badges" class="button">View All My Badges</a>
+        </p>
+        
+        <p>Keep up the great work! More badges await as you continue your eco-friendly journey.</p>
+        
+        <p>Best regards,<br>The EarthLog Team</p>
+    </div>
+    
+    <div class="footer">
+        <p>&copy; 2026 EarthLog. All rights reserved.</p>
+    </div>
+</body>
+</html>
