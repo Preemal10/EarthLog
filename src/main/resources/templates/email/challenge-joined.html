@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge Joined - EarthLog</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #ff5722, #ff7043); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+        .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 10px 10px; }
+        .challenge-card { background: white; padding: 20px; border-radius: 10px; margin: 20px 0; text-align: center; }
+        .challenge-name { font-size: 24px; font-weight: bold; color: #ff5722; }
+        .button { display: inline-block; background: #ff5722; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; margin: 20px 0; }
+        .footer { text-align: center; margin-top: 30px; color: #666; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Challenge Accepted!</h1>
+    </div>
+    
+    <div class="content">
+        <p>Hello <strong th:text="${name}">User</strong>,</p>
+        
+        <p>You've joined a new challenge!</p>
+        
+        <div class="challenge-card">
+            <div class="challenge-name" th:text="${challengeName}">Zero Waste Week</div>
+            <p th:text="${challengeDescription}">Reduce your waste-related emissions by 50% this week</p>
+            <p><strong>Duration:</strong> <span th:text="${duration}">7</span> days</p>
+        </div>
+        
+        <p style="text-align: center;">
+            <a href="http://localhost:3000/challenges" class="button">View Challenge</a>
+        </p>
+        
+        <p>Good luck!</p>
+        
+        <p>Best regards,<br>The EarthLog Team</p>
+    </div>
+    
+    <div class="footer">
+        <p>&copy; 2026 EarthLog. All rights reserved.</p>
+    </div>
+</body>
+</html>
