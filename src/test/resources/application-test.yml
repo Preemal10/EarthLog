@@ -1,0 +1,56 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: test-client-id
+            client-secret: test-client-secret
+
+  # RabbitMQ - disabled for unit tests
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    listener:
+      simple:
+        auto-startup: false
+      direct:
+        auto-startup: false
+
+  # Mail - disabled for tests
+  mail:
+    host: localhost
+    port: 1025
+
+  # Disable Thymeleaf caching for tests
+  thymeleaf:
+    cache: false
+
+app:
+  jwt:
+    secret: test-super-secret-jwt-key-must-be-at-least-256-bits-long-for-hs256-algorithm
+    expiration-ms: 86400000
+  mail:
+    enabled: false
+
+logging:
+  level:
+    root: WARN
+    com.earthlog: DEBUG
