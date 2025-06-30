@@ -5,7 +5,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/earthlog
     username: ${DB_USERNAME:earthlog}
-    password: ${DB_PASSWORD:earthlog123}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -37,7 +37,7 @@ spring:
     host: ${RABBITMQ_HOST:localhost}
     port: ${RABBITMQ_PORT:5672}
     username: ${RABBITMQ_USERNAME:earthlog}
-    password: ${RABBITMQ_PASSWORD:earthlog123}
+    password: ${RABBITMQ_PASSWORD}
     virtual-host: ${RABBITMQ_VHOST:earthlog}
     listener:
       simple:
@@ -82,7 +82,7 @@ server:
 # Application specific properties
 app:
   jwt:
-    secret: ${JWT_SECRET:earthlog-super-secret-jwt-key-must-be-at-least-256-bits-long-for-hs256}
+    secret: ${JWT_SECRET}
     expiration-ms: 86400000  # 24 hours
   cors:
     allowed-origins: http://localhost:3000,http://localhost:8080
