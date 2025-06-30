@@ -1,0 +1,5 @@
+# Exclude email templates from language statistics
+src/main/resources/templates/** linguist-vendored
+
+# Exclude SQL files from language statistics
+*.sql linguist-vendored
